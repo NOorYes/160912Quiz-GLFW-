@@ -76,20 +76,17 @@ void drawPolygon() {
 	drawLine(550, 200, 570, 250, 0.0f, 0.0f, 0.0f);
 	drawLine(550, 201, 570, 251, 0.0f, 0.0f, 0.0f);
 }
-void drawCircle() {
-	double rad = 0;
+void drawCircle(const double& rad, const int& i0, const int& j0, const float& red, const float& green, const float& blue) {
 
-	//for (int j = 1; j <= 60; j++)
 	{
-		rad = 50;
 		for (double i = 0.0; i < 360.0; i += 0.1)
 		{
 			double angle = i *  M_PI/ 180;
 
-			int x = (int)(300 + rad * cos(angle));
-			int y = (int)(100 + rad * sin(angle));
+			int x = (int)(i0 + rad * cos(angle));
+			int y = (int)(j0 + rad * sin(angle));
 
-			drawPixel(x, y, 1.0f, 0.0f, 0.0f);
+			drawPixel(x, y, red, green, blue);
 		}
 	}
 
@@ -153,7 +150,7 @@ void drawOnPixelBuffer()
 	//drawLine(i0, j0, i1, j1, 1.0f, 0.0f, 0.0f);
 	drawThicknerLine(thickness,i0, j0, i1, j1, 0.0f, 1.0f, 0.0f);
 	drawSquare(size, i0+300, j0, i1+300, j1, 0.0f, 1.0f, 1.0f);
-	drawCircle();
+	drawCircle(50,i0+100,i1+100,0.0f,1.0f,0.0f);
 	drawEmptySquare(size, i0 + 100, j0, i1 + 100, j1, 1.0f, 0.0f, 0.0f);
 	drawTriangle();
 	drawPolygon();
